@@ -1,0 +1,79 @@
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+.parent{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3,90px);
+    grid-template-rows: repeat(3,115px);
+    perspective: 100px;
+    transform-style: preserve-3d;
+    align-content: center;
+    justify-content: center;
+}
+
+
+/* starting cube positoning */
+.parent .cube{
+    display: inline-block;
+    /* position: absolute; */
+}
+
+/* starting cube styleing */
+.parent .cube .container {
+    display: contents;
+}
+.container div{
+    border: 1px solid;
+    transition:0.5s;
+}
+.cube .wall-1{
+    width: 60px;
+    height: 60px;
+    rotate: 45deg;
+    translate: 100px 100px;
+    translate: 89px 32px;
+   background-color: rgb(255, 231, 187);
+}
+.cube .wall-2{
+background-color: rgb(204, 185, 149);
+    rotate: 0 0 1 45deg;
+    width: 40px;height: 60px;
+    transform: skew(0deg, 45deg);
+    translate: 120px 20px;
+
+}
+.cube .wall-3{
+background-color: wheat;
+    width:60px;
+    rotate: 45deg;
+    transform: skew(45deg, 0deg);
+    translate: 68px -29px;
+    height: 40px;
+}
+.container:hover .wall-1{
+background-color: rgb(255, 87, 121);
+}
+.container:hover .wall-2{
+    background-color: rgb(173, 18, 49);
+}
+.container:hover .wall-3{
+    background-color: rgb(250, 23, 69);
+}
+/* starting backround styling */
+.parent::before{
+    content: "";
+    background-color: #333;
+    z-index: -1;
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    top: calc(50% - 165px);
+    left: calc(50% - 75px);
+}
